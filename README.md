@@ -1,7 +1,7 @@
 # tandemrepeats
 Tandem Repeats Team -- 2024 SVCC Hackathon
 
-![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/main/Slide1.png?raw=true)
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide1.png?raw=true)
 
 
 Introduction
