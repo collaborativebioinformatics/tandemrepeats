@@ -26,17 +26,6 @@ data = tdb.load_tdb(db_fn,
 #LocusID allele_length   chrom   start   end     is_ref  AC      AF
 print("Getting AC by length")
 ac_table = tdb.allele_count_length(data)
-
-metadata = (pd.read_csv(meta_fn, sep='\t')
-                .where(lambda x: x["Sample name"].isin(data["sample"].keys()))
-                .dropna())
-
-view = metadata[['Sample name', 'Superpopulation code']].copy()
-pop_lookup = view.set_index(['Sample name'])['Superpopulation code'].to_dict()
-
-#LocusID allele_length   chrom   start   end     is_ref  AC      AF
-print("Getting AC by length")
-ac_table = tdb.allele_count_length(data)
 ac_table.set_index(['LocusID', 'allele_length'], inplace=True)
 
 # Columns for each population's observed allele count
