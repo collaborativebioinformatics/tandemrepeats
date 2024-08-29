@@ -3,6 +3,7 @@ Tandem Repeats Team -- 2024 SVCC Hackathon
 
 ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide1.png?raw=true)
 
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide2.png?raw=true)
 
 Introduction
 ============
@@ -51,4 +52,6 @@ We're skipping this for now.
 Since TDB holds all alleles, it should be fairly straightforward to identify loci/alleles that are unique to a proband. Many of the ‘denovo’ sites will be due to technical errors and a full denovo analysis would likely need to leverage the original sequencing. However, a tdb query could help prioritize loci for further investigation.
 Project data
 We have an HPRC tdb with ~105 pacbio samples processed with TRGT available. For rapid development, there are functional test tdbs available in the repo.
+
+
 
