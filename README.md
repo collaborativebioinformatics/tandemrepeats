@@ -5,6 +5,8 @@ Tandem Repeats Team -- 2024 SVCC Hackathon
 
 ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide2.png?raw=true)
 
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/allelefq_clustermap2.png?raw=true)
+
 Introduction
 ============
 Our project’s ideas are around tdb. This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
