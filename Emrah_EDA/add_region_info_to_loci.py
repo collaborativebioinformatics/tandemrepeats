@@ -128,3 +128,39 @@ plt.legend(loc='lower center', bbox_to_anchor=(0.5, 1.15), ncol=3)
 _ = p.set(title=f"PCA of TR from {len(data['sample'])} Samples ({len(candidate_loci)} loci within a gene)",
          xlabel=f"PC1 ({pc1}%)", ylabel=f"PC2  ({pc2}%)")
 plt.savefig("PCA_Loci_within_genes.png")
+
+
+###################################################################################################
+# Find gene names associated with these 7loci
+regions_bed = pybedtools.BedTool.from_dataframe(candidate_loci)
+loci_intersects_with_genes = regions_bed.intersect(annotations, wa=True, wb=True)
+
+# Convert the result to a DataFrame
+intersected_df = loci_intersects_with_genes.to_dataframe(names=['chrom', 'start', 'end', 'gene_chrom', 'gene_start', 'gene_end', 'gene_name'])
+
+# Reset index to work with indiv. columns
+intersected_df=intersected_df.reset_index()
+
+# Display the result
+print(intersected_df[['chrom', 'start', 'end', 'gene_name']])
+print(intersected_df[['gene_name']])
+
+# Drop duplicates to get unique gene names
+gene_names = intersected_df['gene_name'].drop_duplicates()
+# Open new list
+unique_genes_list=[]
+# Iterate over the unique gene names
+for gene_name in gene_names:
+    # Extract gene name using regex
+    match = re.search(r'gene_name "([^"]+)"', gene_name)
+    if match:
+        unique_gene_name = match.group(1)
+        unique_genes_list.append(unique_gene_name)
+ 
+
+gene_names_series = pd.Series(unique_genes_list)
+unique_genes_series = gene_names_series.drop_duplicates()
+unique_genes_list = unique_genes_series.tolist()
+
+# Display the list of unique gene names
+print(unique_genes_list)
