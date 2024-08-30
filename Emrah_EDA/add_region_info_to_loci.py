@@ -1,5 +1,5 @@
 import tdb
-impor
+import re
 import pandas as pd
 from pybedtools import BedTool
 
