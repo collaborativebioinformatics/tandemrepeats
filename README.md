@@ -52,8 +52,9 @@ LocusID	hits_gene	hits_exon	gene_name
 
 Result #2 - Population Statistics
 =================================
-To annotate made the allele counts and [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci, we
-first run a query to calculate allele counts by population using `English_EDA/population_ac_by_length.py`
+
+### Allele Counts
+To annotate made the allele counts  `English_EDA/population_ac_by_length.py`
 
 Usage:
 ```
@@ -67,6 +68,26 @@ chrom	start	end	is_ref	AC	AF	AC_EAS	AC_AMR	AC_AFR	AC_SAS	AC_UNK
 chr1	72059	72194	True	145	0.7474226804123711	15	24	22	19	8
 chr1	72059	72194	False	11	0.05670103092783505	1	0	1	8	0
 ```
+## Length polymorphism
+The length polymorphism score is a per-locus measure of the proportion of distinct alleles by length over the total
+alleles measured at a locus
+
+Usage:
+```
+tdb query len_poly_score hprc_105.tdb > result.txt
+```
+
+Example output:
+```
+chrom	start	end	len_poly_score
+chr1	16682	16774	1.9047619047619047
+chr1	19275	19473	1.9047619047619047
+chr1	20798	20893	1.9047619047619047
+```
+
+## Fst
+ [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci, we
+first run a query to calculate allele counts by population using
 
 TODO! Turn this into a tool with example usage. And make a summary of Fst distribution or something.
 
