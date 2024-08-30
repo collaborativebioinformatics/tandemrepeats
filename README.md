@@ -41,12 +41,30 @@ TODO! Summary of gene intersection
 
 Result #2 - Fst
 ===============
-To annotate made the [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci
+To annotate made the [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci, we
+first run a query to calculate allele counts by population using `English_EDA/population_ac_by_length.py`
 
 Usage:
+```
+python population_ac_by_length.py hprc_105.tdb metadata.tsv -o result.txt
+```
+
+Example output:
+```
+chrom	start	end	is_ref	AC	AF	AC_EAS	AC_AMR	AC_AFR	AC_SAS	AC_UNK
+chr1	72059	72194	True	145	0.7474226804123711	15	24	22	19	8
+chr1	72059	72194	False	11	0.05670103092783505	1	0	1	8	0
+chr1	72059	72194	False	8	0.041237113402061855	0	2	2	4	0
+chr1	72059	72194	False	6	0.030927835051546393	0	1	1	1	2
+chr1	72059	72194	False	5	0.02577319587628866	1	2	1	0	1
+chr1	72059	72194	False	5	0.02577319587628866	0	0	5	0	0
+chr1	72059	72194	False	4	0.020618556701030927	1	0	1	1	1
+chr1	72059	72194	False	3	0.015463917525773196	0	1	0	1	1
+chr1	72059	72194	False	2	0.010309278350515464	0	0	0	1	0
+```
+
 TODO! Turn this into a tool with example usage. And make a summary of Fst distribution or something.
 
-step1: population_ac_by_length.py
 
 Result #3 - Population Informative TR Loci
 ==========================================
