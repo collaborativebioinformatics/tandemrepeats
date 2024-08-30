@@ -14,7 +14,7 @@ Tandem Repeats Team -- 2024 SVCC Hackathon
 
 Introduction
 ============
-Our project’s ideas are around tdb (https://github.com/ACEnglish/tdb/tree/main). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
+Our project’s ideas are around [tdb](https://github.com/ACEnglish/tdb). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
 
 ![](imgs/TDBOverview.png)
 
@@ -45,6 +45,8 @@ To annotate made the [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixati
 
 Usage:
 TODO! Turn this into a tool with example usage. And make a summary of Fst distribution or something.
+
+step1: population_ac_by_length.py
 
 Result #3 - Population Informative TR Loci
 ==========================================
