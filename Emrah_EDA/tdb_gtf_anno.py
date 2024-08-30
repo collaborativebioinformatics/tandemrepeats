@@ -3,18 +3,18 @@ Annotates tdb loci with status of intersection with a gene / exon
 """
 import os
 import sys
-import tdb
-from pybedtools import BedTool
-import pandas as pd
 import argparse
+
+import tdb
+import pandas as pd
+import pyarrow.parquet as pq
+from pybedtools import BedTool
 
 def parse_args(args):
     parser = argparse.ArgumentParser(prog="bench", description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("tdb", type=str, required=True,
-                        help="TDB file")
-    parser.add_argument("gtf", type=str, required=True,
-                        help="GTF file")
+    parser.add_argument("tdb", type=str, help="TDB file")
+    parser.add_argument("gtf", type=str, help="GTF file")
     parser.add_argument("-o", "--output", type=str, default='/dev/stdout',
                         help="Ouput TSV file")
     return parser.parse_args()
@@ -25,8 +25,8 @@ if __name__ == '__main__':
     names = tdb.get_tdb_filenames(args.tdb)
     annotations = BedTool(args.gtf)
 
-    # Turn tdb locus information into a bedtool
-    loci = pd.read_parquet(names['locus']) # chr20
+    # Hard coded filtering- turn off for production
+    loci = pq.read_table(names['locus'], filters=[('chrom', '=', 'chr20')]).to_pandas()
     regions_df = loci[['chrom', 'start', 'end']]
 
     query_regions = regions = BedTool.from_dataframe(regions_df)
