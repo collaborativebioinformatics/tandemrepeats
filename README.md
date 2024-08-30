@@ -124,10 +124,10 @@ The overall PCA of the hprc_105 database shows:
 We explored if it is possible to find a subset of TR loci that could generate an equivalent amount of separation by
 population in a PCA.
 
+See [this notebook](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/English_EDA/MainNotebook.ipynb) for details.
 
 # Old README
 
-See [this notebook](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/English_EDA/MainNotebook.ipynb) for details.
 
 # Outlines ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide1.png?raw=true)
 ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide2.png?raw=true)
