@@ -32,18 +32,23 @@ gencode](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/ge
 ```
 python tdb_gtf_anno.py \
     hprc_105.tdb \
-    gencode.v38.annotation.gtf.gz --chrom chr20 > output.txt
+    gencode.v38.annotation.gtf.gz > output.txt
 ```
+You can optionally subset to specific loci with `--locusids` or tdb chromosomes with `--chrom`.
 
 Example output:
 ```
-LocusID	hits_gene	hits_exon
-494054	True	False
-494053	True	True
+LocusID	hits_gene	hits_exon	gene_name
+132443	True	False	KIAA1549L
+271491	False	False
+347074	True	False	CCDC200
+347381	False	False
+385018	True	False	GTSCR1
+396168	True	False	ZNF433-AS1,CTC-359D24.6
+453703	True	True	TMEM87B
+520559	False	False
+585194	True	False	PIK3CB
 ```
-
-TODO! Summary of gene intersection
-
 
 Result #2 - Fst
 ===============

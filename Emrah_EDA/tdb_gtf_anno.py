@@ -1,6 +1,7 @@
 """
 Annotates tdb loci with status of intersection with a gene / exon
 """
+import re
 import os
 import sys
 import argparse
@@ -20,6 +21,27 @@ def parse_args(args):
     parser.add_argument("-o", "--output", type=str, default='/dev/stdout',
                         help="Ouput TSV file")
     return parser.parse_args()
+
+def get_gene_names(regions, annotations):
+    # Convert the result to a DataFrame
+    regions_bed = BedTool.from_dataframe(regions)
+    loci_intersects_with_genes = regions_bed.intersect(annotations, wa=True, wb=True)
+
+    columns = columns = ['chrom', 'start', 'end', 'gene_chrom', 'unk', 'type', 'gene_start', 'gene_end', 'unk2', 'strand', 'unk3', 'gtf_anno']
+    intersected_df = loci_intersects_with_genes.to_dataframe(names=columns)
+
+    # Reset index to work with indiv. columns
+    intersected_df = intersected_df.reset_index()
+    def fetch_gene_name(anno):
+        match = re.search(r'gene_name "([^"]+)"', anno)
+        if match:
+            return match.group(1)
+        return None
+
+    intersected_df['gene_name'] = intersected_df['gtf_anno'].apply(fetch_gene_name)
+    view = intersected_df[['chrom','start', 'end', 'gene_name']].drop_duplicates()
+    ret = view.groupby(['chrom', 'start', 'end'])['gene_name'].agg(set).apply(lambda x: ','.join(x))
+    return ret
 
 def gtf_annotate(loci, bedtool_gtf):
     """
@@ -42,10 +64,12 @@ def gtf_annotate(loci, bedtool_gtf):
     # Intersect with exons
     intersects_with_exons = regions.intersect(exons, wa=True, wb=True)
     exons_intervals = set((line.chrom, int(line.start), int(line.end)) for line in intersects_with_exons)
-
+    
+    gene_names = get_gene_names(regions_df[['chrom', 'start', 'end']], annotations)
     test = regions_df.set_index(['chrom', 'start', 'end'])
     test['hits_gene'] = test.index.isin(genes_intervals)
     test['hits_exon'] = test.index.isin(exons_intervals)
+    test['gene_name'] = gene_names
 
     loci.set_index(['chrom', 'start', 'end'], inplace=True)
     output = loci.join(test)
