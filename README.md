@@ -21,10 +21,10 @@ Data
 ====
 HPRC 105 TDB made as part of the [TRGT manuscript](https://www.nature.com/articles/s41587-023-02057-3)
 
-Total Samples: 105
-Total TR loci: 937,122 
-Total TR span: 121,698,022 bp (4% of grch38)
-TR catalog: [Adotto v0.3](https://zenodo.org/records/7226352)
+- Total Samples: 105
+- Total TR loci: 937,122 
+- Total TR span: 121,698,022 bp (4% of grch38)
+- TR catalog: [Adotto v0.3](https://zenodo.org/records/7226352)
 
 | Population | Count |
 |------------|-------|
@@ -115,6 +115,9 @@ The overall PCA of the hprc_105 database shows:
 
 We explored if it is possible to find a subset of TR loci that could generate an equivalent amount of separation by
 population in a PCA.
+
+
+# Old README
 
 See [this notebook](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/English_EDA/MainNotebook.ipynb) for details.
 
