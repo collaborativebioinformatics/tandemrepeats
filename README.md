@@ -1,22 +1,16 @@
 # TDB: Tandom Repeat Database Queries
 
-![](TandoRepeatLogo.png)
+![](imgs/TandoRepeatLogo.png)
 
 Tandem Repeats Team -- 2024 SVCC Hackathon
 
-- Adam English
-
-- Moustafa Shokrof
-
-- Wouter De Coaster
-
-- Natali Gulbahce
-
-- Rupesh Kesharwani
-
 - Bishnu Adhikari
-
+- Wouter De Coaster
+- Adam English
 - Emrah Kacar
+- Rupesh Kesharwani
+- Natali Gulbahce
+- Moustafa Shokrof
 
 Introduction
 ============
@@ -55,7 +49,7 @@ Result #3 - Population Informative TR Loci
 ==========================================
 The overall PCA of the hprc_105 database shows:
 
-![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/baseline_pca_tr_105samples.png?raw=true)
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/baseline_pca_tr_105samples.png?raw=true)
 
 We explored if it is possible to find a subset of TR loci that could generate an equivalent amount of separation by
 population in a PCA.
@@ -64,9 +58,9 @@ See [this notebook](https://github.com/collaborativebioinformatics/tandemrepeats
 
 
 # Daily Updates 
-![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide1.png?raw=true)
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide1.png?raw=true)
 
-![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide2.png?raw=true)
+![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide2.png?raw=true)
 
 
 
