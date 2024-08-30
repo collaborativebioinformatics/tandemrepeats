@@ -106,7 +106,7 @@ Query #2 - PCA
 --------------
 Similar to the population structure, there is already an example notebook which will perform a PCA on a tdb. This could be improved. This could also be expanded to perform PCA on methylation data. There may be population structures to dna methylation data. If we can show that they line up to dna variants’ population structure would be neat.
 
-Old-Query #3 - Length Outliers – Bishnu, Adam
+Query #3 - Length Outliers – Bishnu, Adam
 --------------
 Again, there is an example notebook for finding TR alleles which have an anomalous length. There are other approaches which work to find length outliers. A comprehensive single report of all of these measures would assist researchers in prioritizing tandem repeats.
 
