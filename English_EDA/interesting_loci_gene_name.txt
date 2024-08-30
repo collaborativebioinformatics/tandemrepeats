@@ -1,0 +1,15 @@
+LocusID	hits_gene	hits_exon	gene_name
+132443	True	False	KIAA1549L
+271491	False	False	
+347074	True	False	CCDC200
+347381	False	False	
+385018	True	False	GTSCR1
+396168	True	False	ZNF433-AS1,CTC-359D24.6
+453703	True	True	TMEM87B
+520559	False	False	
+585194	True	False	PIK3CB
+648426	False	False	
+772512	False	False	
+774573	False	False	
+875424	True	False	RP11-370B11.4
+914869	True	False	DMD
