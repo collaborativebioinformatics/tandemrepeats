@@ -1,6 +1,17 @@
 import sys
 import pandas as pd
 from itertools import combinations
+import argparse
+
+
+def parse_args(args):
+    parser = argparse.ArgumentParser(prog="bench", description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("input", type=str, help="Allele count tsv created by population_ac_by_length.py")
+    parser.add_argument("-o", "--output", type=str, default='/dev/stdout',
+                        help="Ouput TSV file containing fst and pairwise fst")
+    return parser.parse_args()
+
 
 # I am follwoing equations in the following paper to calcuate Fst.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3141729/#APP1title
@@ -34,12 +45,16 @@ def calculate_fst(allele_ac, pops):
     return pd.concat(all_FST)
 
 
-inputTable = pd.read_csv("result.txt", sep='\t')
-populations = ['SAS', 'EAS', "AMR", 'AFR']
-inputTable['fst'] = calculate_fst(inputTable, populations)
 
 
-for pop1, pop2 in combinations(populations, 2):
-    inputTable[f'fst_{pop1}_{pop2}'] = calculate_fst(inputTable,[pop1,pop2])
+if __name__ == '__main__':
+    args = parse_args(sys.argv[1:])
+    inputTable = pd.read_csv(args.input, sep='\t')
+    populations = ['SAS', 'EAS', "AMR", 'AFR']
+    inputTable['fst'] = calculate_fst(inputTable, populations)
 
-inputTable.to_csv('result_fst.tsv', sep="\t") 
+
+    for pop1, pop2 in combinations(populations, 2):
+        inputTable[f'fst_{pop1}_{pop2}'] = calculate_fst(inputTable,[pop1,pop2])
+
+    inputTable.to_csv(args.output, sep="\t") 
