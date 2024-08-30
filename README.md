@@ -82,9 +82,7 @@ population in a PCA.
 
 See [this notebook](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/English_EDA/MainNotebook.ipynb) for details.
 
-# Outlines 
-![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide1.png?raw=true)
-
+# Outlines ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide1.png?raw=true)
 ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/Slide2.png?raw=true)
 
 Background
