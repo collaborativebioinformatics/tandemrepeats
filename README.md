@@ -34,9 +34,6 @@ HPRC 105 TDB made as part of the Human Pangenome Reference Consortium (HPRC) whi
 | SAS        | 48    |
 | UNK        | 8     |
 
-
-HPRC(Human Pangenome Reference Consortium)
-
 Result #1 - GTF annotation
 ==========================
 
