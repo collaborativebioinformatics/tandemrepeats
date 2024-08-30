@@ -30,7 +30,13 @@ gencode](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/ge
 
 ### Example Usage
 ```
-python Emrah_EDA/tdb_gtf_anno.py hprc_105.tdb gencode.v38.annotation.gtf.gz --chrom chr20 > output.txt
+python tdb_gtf_anno.py \
+    hprc_105.tdb \
+    gencode.v38.annotation.gtf.gz --chrom chr20 > output.txt
+```
+
+Example output:
+```
 LocusID	hits_gene	hits_exon
 494054	True	False
 494053	True	True
@@ -46,7 +52,8 @@ first run a query to calculate allele counts by population using `English_EDA/po
 
 Usage:
 ```
-python population_ac_by_length.py hprc_105.tdb metadata.tsv -o result.txt
+python population_ac_by_length.py \
+    hprc_105.tdb metadata.tsv -o result.txt
 ```
 
 Example output:
