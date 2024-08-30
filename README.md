@@ -1,6 +1,5 @@
 # TDB: Tandom Repeat Database Queries
-
-![](imgs/TandoRepeatLogo.png)
+<img src="https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/imgs/TandoRepeatLogo.png?raw=true" style="width:100px;" align="right" style="vertical-align: middle;"> 
 
 Tandem Repeats Team -- 2024 SVCC Hackathon
 
