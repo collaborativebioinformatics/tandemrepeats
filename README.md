@@ -16,7 +16,7 @@ Introduction
 ============
 Our project’s ideas are around tdb (https://github.com/ACEnglish/tdb/tree/main). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
 
-!{}(imgs/TDBOverview.png)
+![](imgs/TDBOverview.png)
 
 Data
 ====
