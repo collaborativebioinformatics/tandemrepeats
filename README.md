@@ -1,5 +1,23 @@
-# tandem repeats
+# TDB: Tandom Repeat Database Queries
+
+![](TandoRepeatLogo.png)
+
 Tandem Repeats Team -- 2024 SVCC Hackathon
+
+- Adam English
+
+- Moustafa Shokrof
+
+- Wouter De Coaster
+
+- Natali Gulbahce
+
+- Rupesh Kesharwani
+
+- Bishnu Adhikari
+
+- Emrah
+
 
 ![alt text](https://github.com/collaborativebioinformatics/tandemrepeats/blob/main/Slide1.png?raw=true)
 
@@ -11,7 +29,7 @@ Tandem Repeats Team -- 2024 SVCC Hackathon
 
 Introduction
 ============
-Our project’s ideas are around tdb. This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
+Our project’s ideas are around tdb (https://github.com/ACEnglish/tdb/tree/main). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
 
 Extra scripts for these queries have been added to the repository under a feature branch.
 
