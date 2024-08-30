@@ -19,7 +19,7 @@ Our project’s ideas are around [tdb](https://github.com/ACEnglish/tdb). This t
 
 Data
 ====
-HPRC 105 TDB made as part of the Human Pangenome Reference Consortium (HPRC) which represents a subset of HPRC and presents genomic diversity across 105 indivuduals[TRGT manuscript](https://www.nature.com/articles/s41587-023-02057-3).
+HPRC 105 TDB made as part of the Human Pangenome Reference Consortium (HPRC) which represents a subset of HPRC and presents genomic diversity across 105 indivuduals (https://www.nature.com/articles/s41587-023-02057-3).
 
 - Total Samples: 105
 - Total TR loci: 937,122 
