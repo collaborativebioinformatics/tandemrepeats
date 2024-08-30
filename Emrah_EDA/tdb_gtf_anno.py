@@ -15,21 +15,19 @@ def parse_args(args):
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("tdb", type=str, help="TDB file")
     parser.add_argument("gtf", type=str, help="GTF file")
+    parser.add_argument("-c", "--chrom", type=str, help="Chromsome name to parse")
+    parser.add_argument("-l", "--locusids", type=str, help="LocusIDs to parse, multiple ids via e.g. (123,528,529)")
     parser.add_argument("-o", "--output", type=str, default='/dev/stdout',
                         help="Ouput TSV file")
     return parser.parse_args()
 
-# abstract tdb.gene_annotate(tdb[lids], gtf)
-if __name__ == '__main__':
-    args = parse_args(sys.argv[1:])
-    names = tdb.get_tdb_filenames(args.tdb)
-    annotations = BedTool(args.gtf)
-
-    # Hard coded filtering- turn off for production
-    loci = pq.read_table(names['locus'], filters=[('chrom', '=', 'chr20')]).to_pandas()
+def gtf_annotate(loci, bedtool_gtf):
+    """
+    Returns a dataframe of LocusID, hits_gene, hits_exon
+    """
     regions_df = loci[['chrom', 'start', 'end']]
 
-    query_regions = regions = BedTool.from_dataframe(regions_df)
+    regions = BedTool.from_dataframe(regions_df)
 
     # Extract gene features
     genes = annotations.filter(lambda x: x[2] == 'gene')
@@ -51,5 +49,18 @@ if __name__ == '__main__':
 
     loci.set_index(['chrom', 'start', 'end'], inplace=True)
     output = loci.join(test)
-    output.to_csv(args.output, sep='\t', index=False)
+    return output
 
+if __name__ == '__main__':
+    args = parse_args(sys.argv[1:])
+    names = tdb.get_tdb_filenames(args.tdb)
+    annotations = BedTool(args.gtf)
+    filters = []
+    if args.chrom:
+        filters.append(('chrom', 'in', args.chrom.split(',')))
+    if args.locusids:
+        filters.append(('LocusID', 'in', args.locusids.split(',')))
+
+    loci = pq.read_table(names['locus'], filters=filters).to_pandas()
+    output = gtf_annotate(loci, annotations)
+    output.to_csv(args.output, sep='\t', index=False)
