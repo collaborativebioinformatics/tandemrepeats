@@ -1,0 +1,49 @@
+Rscript bed2GenomicFeatures_RK.R -h
+
+usage: bed2GenomicFeatures_RK.R [-h] -b BED -t TSV -n NAME -o OUTPUT
+
+Annotate BED file with genomic features and generate distribution plots
+
+options:
+  -h, --help            show this help message and exit
+  -b BED, --bed BED     Path to input BED file
+  -t TSV, --tsv TSV     Path to input TSV file
+  -n NAME, --name NAME  Filename prefix for output files
+  -o OUTPUT, --output OUTPUT
+                        Directory to save the output files
+
+##########
+Running Example (can take full or intersect any kind of bed and tsv):
+##########
+
+Rscript bed2GenomicFeatures_RK.R -b Annotation-Inputs/result_fst.bed -t Annotation-Inputs/result_fst.tsv -n result_fst -o Results-AnnoFull
+
+OR
+
+Rscript bed2GenomicFeatures_RK.R -b Annotation-Inputs/InterestingAlleles.bed -t Annotation-Inputs/InterestingAlleles.tsv -n InterestingAlleles -o Results-AnnoIntersection
+
+
+Output:
+Results-AnnoIntersection
+├── InterestingAlleles_annotated.bed
+├── InterestingAlleles_annotated.tsv
+├── InterestingAlleles_genomic_and_chr_distribution.pdf
+└── InterestingAlleles_genomic_features_distribution_barplot.png
+
+
+head -5 Results-AnnoIntersection/InterestingAlleles_annotated.tsv
+seqnames	start	end	width	strand	annotation	is_ref	AC	AF	AC_EAS	AC_AMR	AC_AFR	AC_SAS	fst	len_poly_score
+chr11	33641542	33641664	122	*	intron	False	50	0.265957446808511	12	16	7	8	0.045589267722387	21.9047619047619
+chr11	33641542	33641664	122	*	intron	False	18	0.0957446808510638	4	1	7	5	0.0286988839620417	21.9047619047619
+chr11	33641542	33641664	122	*	intron	False	17	0.0904255319148936	0	0	15	0	0.226767452200978	21.9047619047619
+chr11	33641542	33641664	122	*	intron	False	10	0.0531914893617021	2	4	2	2	0.004124994855332	21.9047619047619
+
+
+head -5 Results-AnnoIntersection/InterestingAlleles_annotated.bed
+chr11	33641543	33641664	intron
+chr11	33641543	33641664	intron
+chr11	33641543	33641664	intron
+chr11	33641543	33641664	intron
+chr11	33641543	33641664	intron
+
+
