@@ -101,10 +101,21 @@ chr1	20798	20893	1.9047619047619047
 ```
 
 ## Fst
- [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci, we
-first run a query to calculate allele counts by population using
+[Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) is a measure of genetic differentiation between populations, quantifying the proportion of genetic variance due to population structure. Here we calculated Fst of TR alleles across loci, we first run a query to calculate allele counts by population using population_ac_by_length.py to create input_allele_counts.tsv. We use an equation from [Joshua Sampson et al. (2012)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3141729/#APP1title).
 
-TODO! Turn this into a tool with example usage. And make a summary of Fst distribution or something.
+
+Usage:
+```
+python calculate_fst.py -o result.tsv input_allele_counts.tsv 
+```
+
+Example output:
+```
+ chrom   start   end     is_ref  AC      AF      AC_EAS  AC_AMR  AC_AFR  AC_SAS  fst     fst_SAS_EAS     fst_SAS_AMR     fst_SAS_AFR     fst_EAS_AMR      fst_EAS_AFR     fst_AMR_AFR
+0       chr1    16682   16774   True    161     0.8563829787234043      16      28      26      24      0.0032071247201271857   0.0     0.00073260073260073      0.004571428571428449    0.0006734006734007147   0.004186289900575568    0.0016737559221220444
+1       chr1    16682   16774   False   27      0.1436170212765957      4       8       9       6       0.0032071247201269637   0.0     0.00073260073260073      0.004571428571428449    0.0006734006734007147   0.004186289900575457    0.0016737559221218223
+2       chr1    19275   19473   True    178     0.946808510638298       16      28      26      24      0.0770754352030949      0.015999999999999903    0.0034188034188034067    0.061103030303030215    0.024242424242424176    0.08080808080808077     0.0430976430976433
+```
 
 
 Result #3 - Population Informative TR Loci
