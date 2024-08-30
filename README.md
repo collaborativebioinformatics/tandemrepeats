@@ -20,7 +20,21 @@ Our project’s ideas are around [tdb](https://github.com/ACEnglish/tdb). This t
 
 Data
 ====
-Quick description of HPRC 105 TDB
+HPRC 105 TDB made as part of the [TRGT manuscript](https://www.nature.com/articles/s41587-023-02057-3)
+
+Total Samples: 105
+Total TR loci: 937,122 
+Total TR span: 121,698,022 bp (4% of grch38)
+TR catalog: [Adotto v0.3](https://zenodo.org/records/7226352)
+
+| Population | Count |
+|------------|-------|
+| AFR        | 52    |
+| AMR        | 56    |
+| EAS        | 32    |
+| SAS        | 48    |
+| UNK        | 8     |
+
 
 HPRC(Human Pangenome Reference Consortium)
 
