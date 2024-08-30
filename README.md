@@ -14,7 +14,7 @@ Tandem Repeats Team -- 2024 SVCC Hackathon
 
 Introduction
 ============
-Our project’s ideas are around tdb (https://github.com/ACEnglish/tdb/tree/main). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
+Our project’s ideas are around [tdb](https://github.com/ACEnglish/tdb). This tool turns ‘REPL’ style VCFs from tandem repeat callers into a database. This database compresses better than a VCF thanks to the parquet format and has better structured data that is easier to parse than VCFs. There are currently a handful of ‘standard’ queries and analysis notebooks which can provide useful summaries of tandem repeat results. For the hackathon, we can make some new, interesting queries.
 
 ![](imgs/TDBOverview.png)
 
@@ -30,7 +30,13 @@ gencode](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/ge
 
 ### Example Usage
 ```
-python Emrah_EDA/tdb_gtf_anno.py hprc_105.tdb gencode.v38.annotation.gtf.gz --chrom chr20 > output.txt
+python tdb_gtf_anno.py \
+    hprc_105.tdb \
+    gencode.v38.annotation.gtf.gz --chrom chr20 > output.txt
+```
+
+Example output:
+```
 LocusID	hits_gene	hits_exon
 494054	True	False
 494053	True	True
@@ -41,10 +47,31 @@ TODO! Summary of gene intersection
 
 Result #2 - Fst
 ===============
-To annotate made the [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci
+To annotate made the [Fixation index (Fst)](https://en.wikipedia.org/wiki/Fixation_index) of TR alleles across loci, we
+first run a query to calculate allele counts by population using `English_EDA/population_ac_by_length.py`
 
 Usage:
+```
+python population_ac_by_length.py \
+    hprc_105.tdb metadata.tsv -o result.txt
+```
+
+Example output:
+```
+chrom	start	end	is_ref	AC	AF	AC_EAS	AC_AMR	AC_AFR	AC_SAS	AC_UNK
+chr1	72059	72194	True	145	0.7474226804123711	15	24	22	19	8
+chr1	72059	72194	False	11	0.05670103092783505	1	0	1	8	0
+chr1	72059	72194	False	8	0.041237113402061855	0	2	2	4	0
+chr1	72059	72194	False	6	0.030927835051546393	0	1	1	1	2
+chr1	72059	72194	False	5	0.02577319587628866	1	2	1	0	1
+chr1	72059	72194	False	5	0.02577319587628866	0	0	5	0	0
+chr1	72059	72194	False	4	0.020618556701030927	1	0	1	1	1
+chr1	72059	72194	False	3	0.015463917525773196	0	1	0	1	1
+chr1	72059	72194	False	2	0.010309278350515464	0	0	0	1	0
+```
+
 TODO! Turn this into a tool with example usage. And make a summary of Fst distribution or something.
+
 
 Result #3 - Population Informative TR Loci
 ==========================================
